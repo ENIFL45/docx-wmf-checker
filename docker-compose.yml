@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+  server:
+    build: 
+      context: .
+      dockerfile: Dockerfile-development
+    command: 
+      [
+        "python",
+        "main.py"
+      ]
+    ports:
+      - 7000:7000
+    environment:
+      - PY_ENV=development
+      - PY_PORT=7000
+    volumes:
+      - ./main.py:/home/python/app/main.py 
+     
